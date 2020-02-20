@@ -1,11 +1,10 @@
 function waldo(array) {
     let result = []
-    let column
-    let row
-    let unique = ''
+    let column;
+    let row;
+    let unique = ""
     let obj = {}
     let newArr = []
-​
     array.forEach(element => {
         newArr.push(element)
     })
