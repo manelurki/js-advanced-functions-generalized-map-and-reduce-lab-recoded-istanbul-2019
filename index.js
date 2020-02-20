@@ -3,7 +3,7 @@ function map(arr, fn) {
 
   for (let i = 0; i < arr.length; i++) {
     let theElement = arr[i]
-    r.push(cb(theElement))
+    r.push(fn(theElement))
   }
 
   return r;
