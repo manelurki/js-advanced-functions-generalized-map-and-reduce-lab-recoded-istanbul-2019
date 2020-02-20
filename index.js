@@ -1,8 +1,8 @@
-function map(src, cb) {
+function map(arr, fn) {
   let r = []
 
-  for (let i = 0; i < src.length; i++) {
-    let theElement = src[i]
+  for (let i = 0; i < arr.length; i++) {
+    let theElement = arr[i]
     r.push(cb(theElement))
   }
 
