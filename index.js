@@ -1,3 +1,4 @@
+// // Add your functions here
 function reduce(array, fn, start = null) {
     let total
     if (start == null) {
