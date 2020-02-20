@@ -1,38 +1,51 @@
-// // Add your functions here
-function reduce(array, fn, start = null) {
-    let total
-    if (start == null) {
-        total = array[0]
-        for (let index = 1; index < array.length; index++) {
-            total = fn(total, array[index], array)
+function waldo(array) {
+    let result = []
+    let column
+    let row
+    let unique = ''
+    let obj = {}
+    let newArr = []
+​
+    array.forEach(element => {
+        newArr.push(element)
+    })
+​
+​
+    newArr = newArr.join().split(',')
+​
+    newArr.forEach(element => {
+        if (!obj[element]) {
+            obj[element] = 1
+        } else { obj[element] += 1 }
+    })
+​
+    for (const key in obj) {
+​
+        if (obj.hasOwnProperty(key)) {
+            if (obj[key] === 1) {
+                unique = key
+​
+            }
         }
-        return total;
-    } else {
-        total = start
-        for (let index = 0; index < array.length; index++) {
-            total = fn(total, array[index], array)
+    }
+​
+    array.forEach(element => {
+​
+        if (element.includes(unique)) {
+​
+            column = array.indexOf(element) + 1
         }
-        return total;
-    }
-}
-function reduce(arr, fn, startingValue = 0) {
-    let sum = 0
-    let memo = 0
-    for (let i = 1; i < arr.length; i++) {
-        memo += arr[i - 1]
-        sum = fn(arr[i], memo + startingValue)
-    }
-    return sum
-}
-function reduce(arr, fn, startingPoint) {
-    let val = arr[0];
-    let start = 1;
-    if (startingPoint !== undefined) {
-        val = startingPoint;
-        start = 0;
-    }
-    for (let i = start; i < arr.length; i++) {
-        val = fn(val, arr[i]);
-    }
-    return val;
+​
+        for (let index = 0; index < element.length; index++) {
+            if (element[index] === unique) {
+                row = index + 1
+            }
+​
+        }
+    })
+​
+    result.push(column)
+    result.push(row)
+​
+    return result
 }
